@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Example: Listeners & Handlers</title>
+  <meta charset="utf-8">
+
+  <style>
+    .output {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: monospace;
+      font-size: 2em;
+    }
+
+    .inputs {
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+
+  <script id='handlers'>
+    function _(event) {
+      debugger;
+      console.assert(event.target.id === 'user-action', 'first, targe.id');
+      console.assert(event.target.value === 'a button', 'first, target.value');
+      console.assert(event.target.nodeName === 'INPUT', 'first, target.nodeName');
+      console.assert(event.target.form.id === 'inputs', 'first, target.form.id');
+    }
+    function second(event) {
+      debugger;
+      console.assert(event.type === 'mouseover', 'second, event.type');
+      console.assert(event.target.nodeName === 'CODE', 'second, target.nodeName');
+      console.assert(event.target.className === 'output', 'second, target.className');
+    }
+    function third(event) {
+      debugger;
+      console.assert(event.type === '_', 'third, event.type');
+      console.assert(event.target.id === 'selector', 'third, target.id');
+      console.assert(event.target.childElementCount === _, 'third, target.childElementCount');
+    }
+  </script>
+</head>
+
+<body>
+  <section id='user-interface'>
+    <form class='inputs' id='inputs'>
+      <input name='value' type='text' />
+      <select name="type" id='_'>
+        <option value="string">string</option>
+        <option value="number">number</option>
+        <option value="boolean">boolean</option>
+        <option value="undefined">undefined</option>
+      </select>
+      <input type='button' id='user-action' value='a button' />
+    </form>
+    <code id='_' class='output'>
+      result goes here
+    </code>
+  </section>
+
+  <script id='listener'>
+    document.getElementById('_').addEventListener('click', first);
+    document.getElementById('casted').addEventListener('_', second);
+    document.getElementById('selector').addEventListener('change', third);
+  </script>
+</body>
+
+</html>
