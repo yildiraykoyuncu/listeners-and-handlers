@@ -24,22 +24,17 @@
   <script id='handlers'>
     function first(event) {
       debugger;
-      console.assert(event.target.id === 'user-action', 'first, targe.id');
-      console.assert(event.target.value === 'a button', 'first, target.value');
-      console.assert(event.target.nodeName === 'INPUT', 'first, target.nodeName');
-      console.assert(event.target.form.id === 'inputs', 'first, target.form.id');
+      console.assert(event.type === 'click', 'first, event.type');
+      console.assert(event.target.id === 'user-action', 'first, event.target.id');
+      console.assert(event.target.value === 'a button', 'first, event.target.value');
+      console.assert(event.target.nodeName === 'INPUT', 'first, event.target.nodeName');
+      console.assert(event.target.form.id === 'inputs', 'first, event.target.form.id');
     }
     function second(event) {
       debugger;
-      console.assert(event.type === 'mouseover', 'second, event.type');
-      console.assert(event.target.nodeName === 'CODE', 'second, target.nodeName');
-      console.assert(event.target.className === 'output', 'second, target.className');
-    }
-    function third(event) {
-      debugger;
-      console.assert(event.type === 'change', 'third, event.type');
-      console.assert(event.target.id === 'selector', 'third, target.id');
-      console.assert(event.target.childElementCount === 4, 'third, target.childElementCount');
+      console.assert(event.type === 'change', 'second, event.type');
+      console.assert(event.target.id === 'selector', 'second, event.target.id');
+      console.assert(event.target.nodeName === 'SELECT', 'second, event.target.id');
     }
   </script>
 </head>
@@ -56,15 +51,11 @@
       </select>
       <input type='button' id='user-action' value='a button' />
     </form>
-    <code id='casted' class='output'>
-      result goes here
-    </code>
   </section>
 
   <script id='listener'>
     document.getElementById('user-action').addEventListener('click', first);
-    document.getElementById('casted').addEventListener('mouseover', second);
-    document.getElementById('selector').addEventListener('change', third);
+    document.getElementById('selector').addEventListener('change', second);
   </script>
 </body>
 
