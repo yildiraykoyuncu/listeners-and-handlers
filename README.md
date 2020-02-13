@@ -2,10 +2,19 @@
 
 This repository contains a some mini-websites for you to study and practice developing.  Each one has some HTML a few listeners and handlers with blanks to fill in, and each one is organized the same way. The goal of these exercises isn't to create mind-blowing projects. Instead the goal to get lots of practice reading code, debugging and stepping through in the debugging.
 
+* [`debugger`](#debugger)
 * [How to do the exercises](#how-to-do-the-exercises)
 * [The exercises](#the-exercises)
 
 > You should already know a little about events before getting working on these exercises, head over to [study.hackyourfuture.be](https://study.hackyourfuture.be/javascript/events) to find some starting resources
+
+---
+
+## `debugger`
+
+These exercises are as much about practicing [using the DevTools Debugger](https://javascript.info/debugging-chrome) as it is about learning Events and Handlers. After connecting the event listeners to the correct DOM elements, you will find that it's possible to pass all of the asserts just by investigating local variables in you Debugger.
+
+So keep your DevTools open and study away!
 
 ---
 
