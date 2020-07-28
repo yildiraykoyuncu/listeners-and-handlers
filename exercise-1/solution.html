@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exercise 1</title>
+    <meta charset="utf-8">
+
+    <style>
+        .secret {
+            display: hidden;
+        }
+    </style>
+
+    <script id='handlers'>
+        function handler(event) {
+            debugger;
+            console.assert(event.target.innerHTML === 'catch me if you can!', 'event.target.innerHTML');
+            console.assert(event.target.nodeName === 'BUTTON', 'event.target.nodeName');
+            console.assert(event.target.id === 'hi', 'event.target.id');
+            console.assert(event.target.className === 'secret', 'event.target.className');
+            console.assert(event.type === 'click', 'event.type');
+        }
+    </script>
+</head>
+
+<body>
+    <section id='user-interface'>
+        <button id='hi' class='secret'>catch me if you can!</button>
+    </section>
+
+    <script id='listeners'>
+        document.getElementById('hi').addEventListener('click', handler);
+    </script>
+</body>
+
+</html>

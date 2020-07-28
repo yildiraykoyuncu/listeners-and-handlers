@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exercise 2</title>
+    <meta charset="utf-8">
+
+    <style>
+        .first-class {
+            display: flex;
+            flex-direction: row-reverse;
+            background-color: darkgreen;
+            height: 30vh;
+            width: 60vw;
+        }
+        
+        .second-class {
+            display: hidden;
+        }
+        
+        .third-class {
+            background-color: black;
+            position: fixed;
+            top: 10vh;
+            left: 10vw;
+        }
+    </style>
+
+    <script id='handlers'>
+        function firstHandler(event) {
+            debugger;
+            console.assert(event.target.innerHTML === '3', 'first: target.innerHTML');
+            console.assert(event.target.nodeName === 'DIV', 'first: target.nodeName');
+            console.assert(event.target.id === 'first', 'first: target.id');
+            console.assert(event.type === 'click', 'first: event.type');
+        }
+
+        function secondHandler(event) {
+            debugger;
+            console.assert(event.target.id === 'second', 'second: target.id');
+            console.assert(event.target.className === 'third-class', 'second: target.className');
+            console.assert(event.target.innerHTML === '1', 'second: target.innerHTML');
+            console.assert(event.type === 'mouseover', 'second: event.type');
+        }
+
+        function thirdHandler(event) {
+            debugger;
+            console.assert(event.target.className === 'first-class', 'third: target.className');
+            console.assert(event.target.id === 'third', 'third: target.id');
+            console.assert(event.target.innerHTML === '2', 'third: target.innerHTML');
+            console.assert(event.type === 'mouseover', 'second: event.type');
+        }
+    </script>
+</head>
+
+<body>
+    <section id='user-interface'>
+        <div id='first' class='second-class'>3</div>
+        <div id='second' class='third-class'>1</div>
+        <div id='third' class='first-class'>2</div>
+    </section>
+
+    <script id='listeners'>
+        document.getElementById('first').addEventListener('click', firstHandler);
+        document.getElementById('second').addEventListener('mouseover', secondHandler);
+        document.getElementById('third').addEventListener('mouseover', thirdHandler);
+    </script>
+</body>
+
+</html>
